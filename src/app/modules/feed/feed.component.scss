@@ -1,0 +1,72 @@
+.feedlist-layout {
+    display: inline-block;
+    width: 100%;
+    .feed-list {
+        display: inline-flex;
+        padding: 10px;
+        border-bottom: 1px solid #efefef;
+        width: 100%;
+        &:hover {
+            border-bottom: none;
+            border: 1px solid #d2d2d2;
+            cursor: pointer;
+        }
+    }
+}
+
+.feed-list {
+    font-size: 12px;
+    font-weight: 700;
+    .feed-thumb {
+        height: 60px;
+        width: 80px;
+        flex: 0 0 80px;
+        padding-right: 20px;
+        img,
+        .feed-thumb-alt {
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+        }
+    }
+    .feed-thumb-alt {
+        background: #f8f8f8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .feed-title {
+        color: rgb(155, 155, 155);
+        font-size: 16px;
+        font-weight: 400;
+    }
+    .feed-author {
+        padding-bottom: 5px;
+    }
+    .feed-search-text {
+        color: rgb(28, 28, 28);
+        padding-right : 10px;
+    }
+    .feed-author-text,
+    .feed-created-text {
+        font-weight: 400;
+        padding-right: 10px;
+    }
+    .feed-comments {
+        display: flex;
+        align-items: center;
+        color: rgb(135, 138, 140);
+        font-weight: 700;
+        i.feed-comments-icon {
+            font-size: 14px;
+            padding-right: 5px;
+        }
+    }
+}
+
+.feed-footer {
+    display: inline-flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}

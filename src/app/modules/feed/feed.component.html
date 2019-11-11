@@ -1,0 +1,44 @@
+<div class="feedlist-layout">
+    <div class="feed-list-box">
+        <ul>
+            <li class="feed-list" (click)="onFeedItemClick(feed)"
+                *ngFor="let feed of feedList | paginate: { itemsPerPage: entriesCount, currentPage: p }">
+                <div class="feed-thumb">
+                    <img *ngIf="feed.thumbnail !== 'self'; else thumbAlt" [src]="feed.thumbnail" [alt]="" />
+                    <ng-template #thumbAlt>
+                        <div class="feed-thumb-alt">
+                            <i class="feed-thumb-alt-icon material-icons">
+                                broken_image
+                            </i>
+                        </div>
+                    </ng-template>            
+                </div>
+                <div class="feed-content">
+                    <div class="feed-title">
+                        {{ feed.title }}
+                    </div>
+                    <div class="feed-author">
+                        <span class="feed-search-text">{{ feed.subreddit_name_prefixed }}</span>
+                        <span class="feed-author-text">{{ feedAuthorprefix }}{{ feed.author }}</span>
+                        <span class="feed-created-text">{{ getTimeDifference(feed.created) }}</span>
+                    </div>
+                    <span class="feed-comments">
+                        <i class="feed-comments-icon material-icons">comment</i>
+                        {{ feed.num_comments }} comments 
+                    </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="feed-footer">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        <div class="feed-counter">
+            <label>Entries: </label>
+            <select (change)="onEntriesCountChange($event.target.value)" [value]='10'>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="25">25</option>
+            </select>
+        </div>
+    </div>
+</div>

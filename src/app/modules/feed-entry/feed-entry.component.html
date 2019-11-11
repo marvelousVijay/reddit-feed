@@ -1,0 +1,27 @@
+<div class="feed-layout-large">
+    <div class="feed-content">
+        <div class="feed-author">
+            <span class="feed-author-text">{{ feedAuthorprefix }}{{ entry.author }}</span>
+            <span class="feed-created-text">{{ createdTime }}</span>
+        </div>
+        <div class="feed-title">
+            {{ entry.title }}
+        </div>
+    </div>
+    <div class="feed-thumb">
+        <img *ngIf="entry.thumbnail !== 'self'; else thumbAlt" [src]="entry.thumbnail" [alt]="" />
+        <ng-template #thumbAlt>
+            <div class="feed-thumb-alt">
+                <i class="feed-thumb-alt-icon material-icons">
+                    broken_image
+                </i>
+            </div>
+        </ng-template>            
+    </div>
+    <div class="feed-footer">
+        <span class="feed-comments">
+            <i class="feed-comments-icon material-icons">comment</i>
+            {{ entry.num_comments }} comments
+        </span>
+    </div>
+</div>
